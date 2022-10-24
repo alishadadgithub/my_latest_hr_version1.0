@@ -1,0 +1,195 @@
+﻿@model EmployeeCreateViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">الصفحة الرئيسية</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index">لائحة الموظفين</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">موظف جديد</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>موظف جديد</h3>
+                <hr />
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+</section>
+
+    <!-- Main content -->
+    <section class="content">
+
+
+    <!-- Content Header (Page header) -->
+    
+        <form method="post" enctype="multipart/form-data" asp-action="Create">
+             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="card">
+                <div class="card-header">
+                    المعلومات الشخصية
+                </div>
+                <div class="card-body">
+                     <div class="form-row">
+                                <div class="form-group col-md-1">
+                        <label>الإسم</label>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <input asp-for="EmployeeFirstName" class="form-control" placeholder="إسم" />
+                                    <span asp-validation-for="EmployeeFirstName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <label>الأب</label>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                            <input asp-for="EmployeeMiddleName" class="form-control" placeholder="الأب" />
+                            <span asp-validation-for="EmployeeMiddleName" class="text-danger"></span>
+                                </div>
+                                @*<div class="col-md-2"></div>*@
+
+                                 <div class="form-group col-md-1">
+                                    <label>الشهرة</label>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input asp-for="EmployeeLastName" class="form-control" placeholder="الشهرة" />
+                                    <span asp-validation-for="EmployeeLastName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <label>تاريخ الولادة</label>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <input asp-for="EmployeeDateOfBirth" class="form-control" />
+                                    <span asp-validation-for="EmployeeDateOfBirth" class="text-danger"></span>
+                                </div>
+                                  <div class="form-group col-md-1">
+                                    <label>رقم الهاتف</label>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input asp-for="EmployeePhoneNumber" class="form-control" placeholder="______/__" />
+                                    <span asp-validation-for="EmployeePhoneNumber" class="text-danger"></span>
+                                </div>
+
+                        <div class="form-group col-md-1">
+                            <label>الحالة العائلية</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <select asp-for="FkmaritalStatusId" asp-items="@Model.MaritalStatusList" class="form-control" placeholder="المستوى العلمي">
+                                
+
+                                <option disabled selected>--الحالة العائلية--</option>
+                            </select>
+                       
+                            <span asp-validation-for="FkmaritalStatusId" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group col-md-1">
+                            <label>المستوى العلمي</label>
+                        </div>
+                       
+                        <div class="form-group col-md-3">
+                            <select asp-for="FkacademicQualificationId" asp-items="@Model.AcademicQualificationList" class="form-control" placeholder="المستوى العلمي" >\
+                                
+                            <option disabled selected>--الشهادة العلمية--</option>
+                            </select>
+                            <span asp-validation-for="FkacademicQualificationId" class="text-danger"></span>
+                        </div>
+                            </div>
+
+
+                           
+                               
+                        
+
+                              <div class="form-row">
+                                <div class="form-group col-md-1">
+                                    <label>الرقم المالي</label>
+                                </div>
+                                <div class="form-group col-md-3">
+                            <input asp-for="EmployeeFinancialNumber" class="form-control" placeholder="الرقم المالي" />
+                                    <span asp-validation-for="EmployeeFinancialNumber" class="text-danger"></span>
+                                </div>
+
+                           
+                        
+                            <div class="form-group col-md-1">
+                                <label>الرقم الآلي</label>
+                            </div>
+                            <div class="form-group col-md-3">
+                            <input asp-for="EmployeeAutomatedNumber" class="form-control" placeholder="الرقم الآلي" />
+                                <span asp-validation-for="EmployeeAutomatedNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-1">
+                                <label >الرقم الضريبي</label>
+                            </div>
+                            <div class="form-group col-md-3">
+                            <input asp-for="EmployeeTaxNumber" class="form-control" placeholder="الرقم الضريبي" />
+                                <span asp-validation-for="EmployeeTaxNumber" class="text-danger"></span>
+                            </div>
+                                  
+                           
+</div>
+
+                         @*  /* ----------------------------*/*@
+                            <div class="form-row">
+                                <div class="form-group col-md-1">
+                                    <label>صورة</label>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <div class="btn btn-primary btn-icon-text">
+                                
+                                        <input asp-for="EmployeeImageURL" type="file" value="Upload" />
+                                        <span asp-validation-for="EmployeeImageURL" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-rounded btn-primary float-left"><i class="fa fa-save ml-2"></i>حفظ</button>
+                                    <a asp-action="index" class="btn btn-rounded btn-success float-right"><i class="fa fa-forward ml-2"></i>عودة</a>
+        
+                                    <a asp-action="index" class="btn btn-rounded btn-success float-right " ><i class="fa fa-backward ml-4  " ></i>التالي</a>
+                                </div>
+
+            </div>
+                           
+                           
+                                
+                        </form>
+    </section>
+</div>
+</div>
+@*<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index">Employee List</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">New Employee</li>
+                </ol>
+            </nav><br /><br />
+                       
+        </div>
+    </div>
+</div>*@
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

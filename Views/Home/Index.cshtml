@@ -1,0 +1,68 @@
+﻿@using System.Globalization;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                   @* <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a asp-controller="" asp-action="">لائحة  </a></li>
+                        <li class="breadcrumb-item active"> جديد</li>
+                    </ol>*@
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <form>
+           <div class="text-center">
+    <h1>برنامج إدارة شؤون الموظفين</h1>
+    <p>
+        <a href="http://www.agriculture.gov.lb">الجمهورة اللبنانية وزارة الزراعة</a>
+    </p>
+</div>
+<br/>
+ <div class="card-deck">
+            <div class="card">
+                @*<img class="card-img-top" src="..." alt="Card image cap">*@
+                <div class="card-body text-center border-success">
+                    <h5 class="card-title mb-2"><i class="fa fa-file text-success"></i></h5>
+                    <p class="card-text">عدد طلبات الإجازة خلال 2022</p>
+                    <p class="card-text"><small class="text-muted">10</small></p>
+                </div>
+            </div>
+            <div class="card">
+                @*<img class="card-img-top" src="..." alt="Card image cap">*@
+                <div class="card-body text-center border-dark">
+                    <h5 class="card-title mb-2"><i class="fa fa-list text-info"></i></h5>
+                    <p class="card-text">...</p>
+                    <p class="card-text"><small class="text-muted">400</small></p>
+                </div>
+            </div>
+            <div class="card">
+                @*<img class="card-img-top" src="..." alt="Card image cap">*@
+                <div class="card-body text-center border-warning">
+                    <h5 class="card-title mb-2"><i class="fa fa-percent text-danger"></i></h5>
+                    <p class="card-text">...</p>
+                    <p class="card-text"><small class="text-muted">60</small></p>
+                </div>
+            </div>
+        </div>
+        <p class="card-text text-success alert-warning alert" style="background-color: #eebb56 !important;color:white !important;">
+
+            @{
+                var today = DateTime.Now.ToString("dddd, dd MMMM yyyy", new CultureInfo("ar-AE"));
+            }
+            تاريخ آخر تحديث @today 
+        </p>
+        </form>
+    </section>
+</div>

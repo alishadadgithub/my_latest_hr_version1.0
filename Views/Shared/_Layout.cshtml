@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HR</title>
+
+@*    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/Style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+    *@
+
+
+     <!-- Font Awesome -->
+    <link href="~/theme/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
+    <!-- bootstrap rtl -->
+    <link rel="stylesheet" href="~/theme/dist/css/bootstrap-rtl.min.css">
+    <!-- template rtl version -->
+    <link rel="stylesheet" href="~/theme/dist/css/custom-style.css">
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body  class="hold-transition sidebar-mini">
+        <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <!-- LOGIN FORM -->
+            <partial name="_LoginPartial" />
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item d-none d-sm-inline-block" style=" margin: -0.5em;">
+                    <img src="/theme/dist/img/bg-flag.jpg" style="opacity:0.8">
+                </li>
+            </ul>
+
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-primary elevation-4">
+            <!-- Brand Logo -->
+
+
+            <a href="#" class="brand-link" style="padding-bottom: 1.1em;">
+                <img src="~/images/MOA_news-logo.png" alt="Coops Logo" class="brand-image img-circle elevation-3"
+                     style="opacity: .8; float: right !important; box-shadow: 0 0 0 rgba(0,0,0,.19),0 6px 6px rgba(0,0,0,.23); margin-top: 1em;">
+                <span class="brand-text font-weight-bold" style="color: rgb(3 102 88);margin-top: 1em; display: inline-block;">شؤون الموظفين</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div>
+                    <!-- Sidebar user panel (optional) -->
+                    <!--<div class="user-panel mt-3 pb-3 mb-3 d-flex">-->
+                    @*<div class="image">
+                            <img src="https://secure.gravatar.com/avatar/5ffa2a1ffeb767c60ab7e1052e385d5c?s=52&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
+                        </div>*@
+                    <!--<div class="info">
+                            <a href="#" class="d-block"> أهلا user admin  </a>
+                        </div>
+                    </div>-->
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+                            with font-awesome or any other icon font library -->
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+                                    <i class="nav-icon fa fa-dashboard"></i>
+                                    <p>
+                                        لوحة التحكّم
+                                    </p>
+                                </a>
+                            </li>
+                         
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-th-list"></i>
+                                    <p>
+                                        شؤون الموظفين
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                     <li class="nav-item">
+                                        <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-file nav-icon" style="font-size:small"></i>
+                                            <p>لائحة الموظفين</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Employee" asp-action="Create">
+                                            <i class="fa fa-list-ul nav-icon" style="font-size:small"></i>
+                                            <p>إضافة موظّف</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-th-list"></i>
+                                    <p>
+                                       طلبات الإجازات
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                     <li class="nav-item">
+                                        <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-file nav-icon" style="font-size:small"></i>
+                                            <p>بحث</p>
+                                        </a>
+                                    </li>
+                                     <li class="nav-item">
+                                        <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-file nav-icon" style="font-size:small"></i>
+                                            <p>إجازة مرضية</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Employee" asp-action="Create">
+                                            <i class="fa fa-list-ul nav-icon" style="font-size:small"></i>
+                                            <p>إجازة إدارية</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-file nav-icon" style="font-size:small"></i>
+                                            <p>إجازة من دون راتب</p>
+                                        </a>
+                                    </li>
+                                     <li class="nav-item">
+                                        <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-file nav-icon" style="font-size:small"></i>
+                                            <p>إستيداع</p>
+                                        </a>
+                                    </li>
+                                     <li class="nav-item">
+                                        <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-file nav-icon" style="font-size:small"></i>
+                                            <p>إجازة أمومة</p>
+                                        </a>
+                                    </li>
+                                     <li class="nav-item">
+                                        <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-file nav-icon" style="font-size:small"></i>
+                                            <p>إجازة وفاة</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-th-list"></i>
+                                    <p>
+                                        هيكلية وزارة الزراعة
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Employee" asp-action="Create">
+                                            <i class="fa fa-list-ul nav-icon" style="font-size:small"></i>
+                                            <p>بحث</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-file nav-icon" style="font-size:small"></i>
+                                            <p>تعديل</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-bar-chart"></i>
+                                    <p>
+                                        التقارير
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a asp-controller="Report" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon" style="font-size:small"></i>
+                                            <p>تقارير 1</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../tables/data.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon" style="font-size:small"></i>
+                                            <p>تقارير 2</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview ">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-users"></i>
+                                    <p>
+                                        إدارة المستخدمين
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    
+                                    <li class="nav-item">
+                                        <a asp-area="Identity" asp-page="/Account/Register" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon" style="font-size:small"></i>
+                                            <p>مستخدم جديد</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="RoleManager" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon" style="font-size:small"></i>
+                                            <p>الأدوار</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="UsersRoles" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon" style="font-size:small"></i>
+                                            <p>المستخدمين</p>
+                                        </a>
+                                    </li>
+                                    @*<li class="nav-item">
+                                            <a href="../examples/lockscreen.html" class="nav-link">
+                                                <i class="fa fa-circle-o nav-icon"></i>
+                                                <p>قفل صفحه</p>
+                                            </a>
+                                        </li>*@
+                                </ul>
+                            </li>
+                          
+
+                            <li class="nav-item mt-4">
+                                <a asp-area="Identity" asp-page="/Account/login" class="nav-link">
+                                    <i class="fa fa-lock nav-icon text-danger"></i>
+                                    <p class="text-bold">تسجيل الخروج</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        @RenderBody()
+        <footer class="main-footer">
+            <strong>
+                تنفيذ دائرة التوثيق والمعلوماتية - وزارة الزراعة
+                &copy; 2022
+            </strong>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+    </div>
+
+
+
+   @* <div class="container-scroller">
+            </div>
+        </nav>  
+        <div class="container-fluid page-body-wrapper">
+
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#Employee" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="fa-solid fa-people-simple fa-lg text-primary"></i>
+                            <span class="menu-title">Employee</span>
+                            <i class="menu-arrow text-primary"></i>
+                        </a>
+                        <div class="collapse" id="Employee">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Employee" asp-action="Create">New Employees</a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Employee" asp-action="Index">All Employees</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#PayRole" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                            <span class="menu-title">Pay</span>
+                            <i class="menu-arrow text-primary"></i>
+                        </a>
+                        <div class="collapse" id="PayRole">
+                            <ul class="nav flex-column sub-menu" >
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Pay" asp-action="Create">New Payment</a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Pay" asp-action="Index"> Payment records</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-panel">
+              @*  <partial name="" />*@
+              @*  <div class="content-wrapper">
+                    @RenderBody()
+
+                </div>
+                <footer class="footer">
+                    <p> @DateTime.UtcNow.Year -  HR agriculture - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
+                </footer>
+            </div>
+            </div>
+
+
+    </div>*@
+
+
+    @*<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HR</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>*@
+
+
+    @*<div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>*@
+
+    @*<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - HR - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+  @*  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+*@
+
+
+     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/theme/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/theme/plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/theme/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/theme/dist/js/demo.js"></script>
+@*    @await Component.InvokeAsync("Notyf")*@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

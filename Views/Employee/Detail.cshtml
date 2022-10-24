@@ -1,0 +1,56 @@
+﻿@model EmployeeDetailViewModel
+@{
+    ViewData["Title"] = "Employee Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb float-sm-left">
+                      <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">الصفحة الرئيسية</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index">لائحة الموظفين</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">التفاصيل</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>التفاصيل</h3>
+                    <hr />
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+  
+
+
+<div class="col-md-20 grid-margin grid-margin-md-0">
+    <div class="card">
+        <div class="card-body">
+            
+          
+            <div class="wrap d-flex justify-content-start justify-content-sm-center flex-wrap">
+                
+                <img class="rounded-circle shadow-lg" style="width:300px; height:350px" src="@("~/images/employee/"+ Model.EmployeeImageURL)" asp-append-version="true" alt="pic" />
+
+                <div class="wrap align-items-center ml-5">
+                    <p class="font-weight-bold text-success " style="font-size:20px">الرقم التسلسلي: @Model.PkemployeeId</p>
+                    <p class="font-weight-bold text-success " style="font-size:20px">الإسم: @Model.EmployeeFirstName</p>
+                    <p class="font-weight-bold text-success " style="font-size:20px">الشهرة: @Model.EmployeeLastName</p>
+                    <p class="font-weight-bold text-success " style="font-size:20px">تاريخ الولادة: @Model.EmployeeDateOfBirth.ToString("dd/MM/yyyy")</p>
+                    <p class="font-weight-bold text-success " style="font-size:20px">الرقم المالي: @Model.EmployeeFinancialNumber</p>
+                    <p class="font-weight-bold text-success " style="font-size:20px"> رقم الهاتف: @Model.EmployeePhoneNumber.</p>
+
+                </div>
+
+            </div> 
+        </div>
+    </div>
+</div>
+</div>
